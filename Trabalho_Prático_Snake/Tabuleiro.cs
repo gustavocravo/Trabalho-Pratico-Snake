@@ -56,21 +56,36 @@ namespace Trabalho_Prático_Snake
         public void Limpar()
         {
             for (int i = 0; i < Linhas; i++)
+            {
                 for (int j = 0; j < Colunas; j++)
+                {
                     Grade[i, j] = ' ';
+                }
+            }
         }
 
         public bool TemEspacoLivre()
         {
             for (int i = 0; i < Linhas; i++)
+            {
                 for (int j = 0; j < Colunas; j++)
-                    if (Grade[i, j] == ' ') return true;
+                {
+                    if (Grade[i, j] == ' ')
+                    {
+                        return true;
+                    }
+                }
+            }  
+            
             return false;
         }
 
         public bool ColocarAlimento()
         {
-            if (!TemEspacoLivre()) return false;
+            if (!TemEspacoLivre())
+            {
+                return false;
+            }
 
             int linha, coluna;
 
@@ -103,21 +118,29 @@ namespace Trabalho_Prático_Snake
         public void Desenhar(int pontuacao)
         {
             Console.Clear();
-            for (int i = 0; i < Colunas + 2; i++) Console.Write('#');
+            for (int i = 0; i < Colunas + 2; i++) 
+            {
+                Console.Write('#');
+            }
             Console.WriteLine();
 
             for (int i = 0; i < Linhas; i++)
             {
                 Console.Write('#');
                 for (int j = 0; j < Colunas; j++)
+                {
                     Console.Write(Grade[i, j]);
+                }
                 Console.Write('#');
                 Console.WriteLine();
             }
 
-            for (int i = 0; i < Colunas + 2; i++) Console.Write('#');
+            for (int i = 0; i < Colunas + 2; i++)
+            {
+                Console.Write('#');
+            }
+            
             Console.WriteLine();
-
             Console.WriteLine("Pontos: " + pontuacao);
         }
     }

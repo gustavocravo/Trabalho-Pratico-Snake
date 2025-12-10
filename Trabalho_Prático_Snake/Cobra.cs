@@ -8,11 +8,11 @@ namespace Trabalho_Prático_Snake
 {
     internal class Cobra
     {
-        private char direcao;
+        private string direcao;
         private int tamanho;
         private int[,] corpo;
 
-        public char Direcao
+        public string Direcao
         {
             get { return direcao; }
             set { direcao = value; }
@@ -36,16 +36,28 @@ namespace Trabalho_Prático_Snake
             Corpo[0, 0] = linhaInicial;
             Corpo[1, 0] = colunaInicial;
             Tamanho = 1;
-            Direcao = 'D';
+            Direcao = "DIREITA";
         }
 
 
         public void MudarDirecao(ConsoleKey tecla)
         {
-            if (tecla == ConsoleKey.UpArrow && Direcao != 'B') Direcao = 'C';
-            else if (tecla == ConsoleKey.DownArrow && Direcao != 'C') Direcao = 'B';
-            else if (tecla == ConsoleKey.LeftArrow && Direcao != 'D') Direcao = 'E';
-            else if (tecla == ConsoleKey.RightArrow && Direcao != 'E') Direcao = 'D';
+            if (tecla == ConsoleKey.UpArrow && Direcao != "BAIXO")
+            {
+                Direcao = "CIMA";
+            }
+            else if (tecla == ConsoleKey.DownArrow && Direcao != "CIMA")
+            {
+                Direcao = "BAIXO";
+            }
+            else if (tecla == ConsoleKey.LeftArrow && Direcao != "DIREITA")
+            {
+                Direcao = "ESQUERDA";
+            }
+            else if (tecla == ConsoleKey.RightArrow && Direcao != "ESQUERDA")
+            {
+                Direcao = "DIREITA";
+            }
         }
 
 
@@ -58,10 +70,22 @@ namespace Trabalho_Prático_Snake
             }
 
 
-            if (Direcao == 'C') Corpo[0, 0]--;
-            else if (Direcao == 'B') Corpo[0, 0]++;
-            else if (Direcao == 'E') Corpo[1, 0]--;
-            else if (Direcao == 'D') Corpo[1, 0]++;
+            if (Direcao == "CIMA")
+            {
+                Corpo[0, 0]--;
+            }
+            else if (Direcao == "BAIXO")
+            {
+                Corpo[0, 0]++;
+            }
+            else if (Direcao == "ESQUERDA")
+            {
+                Corpo[1, 0]--;
+            }
+            else if (Direcao == "DIREITA")
+            {
+                Corpo[1, 0]++;
+            }
         }
 
 
@@ -73,7 +97,10 @@ namespace Trabalho_Prático_Snake
 
         public void Crescer()
         {
-            if (Tamanho < 600) Tamanho++;
+            if (Tamanho < 600)
+            {
+                Tamanho++;
+            }
         }
 
 
@@ -87,8 +114,13 @@ namespace Trabalho_Prático_Snake
         public bool ColisaoCorpo()
         {
             for (int i = 1; i < Tamanho; i++)
+            {
                 if (Corpo[0, 0] == Corpo[0, i] && Corpo[1, 0] == Corpo[1, i])
+                {
                     return true;
+                }
+            }
+                    
             return false;
         }
     }

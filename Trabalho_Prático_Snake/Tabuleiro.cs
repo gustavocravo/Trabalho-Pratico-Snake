@@ -115,7 +115,7 @@ namespace Trabalho_Prático_Snake
             Grade[AlimentoLinha, AlimentoColuna] = '$';
         }
 
-        public void Desenhar(int pontuacao)
+        public void DesenharTab(int pontuacao)
         {
             Console.Clear();
             for (int i = 0; i < Colunas + 2; i++) 

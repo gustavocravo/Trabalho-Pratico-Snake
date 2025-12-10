@@ -89,7 +89,7 @@ namespace Trabalho_Prático_Snake
         }
 
 
-        public bool Comeu(int alimentoLinha, int alimentoColuna)
+        public bool Comer(int alimentoLinha, int alimentoColuna)
         {
             return Corpo[0, 0] == alimentoLinha && Corpo[1, 0] == alimentoColuna;
         }
@@ -104,14 +104,14 @@ namespace Trabalho_Prático_Snake
         }
 
 
-        public bool ColisaoParede(int maxLinhas, int maxColunas)
+        public bool BateuParede(int maxLinhas, int maxColunas)
         {
             return Corpo[0, 0] < 0 || Corpo[0, 0] >= maxLinhas ||
             Corpo[1, 0] < 0 || Corpo[1, 0] >= maxColunas;
         }
 
 
-        public bool ColisaoCorpo()
+        public bool BateuCorpo()
         {
             for (int i = 1; i < Tamanho; i++)
             {

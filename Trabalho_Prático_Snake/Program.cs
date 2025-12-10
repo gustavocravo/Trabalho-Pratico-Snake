@@ -25,7 +25,7 @@ namespace Trabalho_Prático_Snake
 
             tab.ColocarAlimento();
             tab.Atualizar(cobra.Corpo, cobra.Tamanho);
-            tab.Desenhar(jogador.Pontuacao);
+            tab.DesenharTab(jogador.Pontuacao);
 
             bool jogoAtivo = true;
 
@@ -39,13 +39,13 @@ namespace Trabalho_Prático_Snake
 
                 cobra.Mover();
 
-                if (cobra.ColisaoParede(linhas, colunas) || cobra.ColisaoCorpo())
+                if (cobra.BateuParede(linhas, colunas) || cobra.BateuCorpo())
                 {
                     jogoAtivo = false;
                     break;
                 }
 
-                if (cobra.Comeu(tab.AlimentoLinha, tab.AlimentoColuna))
+                if (cobra.Comer(tab.AlimentoLinha, tab.AlimentoColuna))
                 {
                     cobra.Crescer();
                     jogador.AddPontos(10);
@@ -53,7 +53,7 @@ namespace Trabalho_Prático_Snake
                 }
 
                 tab.Atualizar(cobra.Corpo, cobra.Tamanho);
-                tab.Desenhar(jogador.Pontuacao);
+                tab.DesenharTab(jogador.Pontuacao);
 
                 Thread.Sleep(150);
             }
